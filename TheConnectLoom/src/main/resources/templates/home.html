@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace = "~{base::layout(~{::section})}">
+<head>
+<meta charset="UTF-8" />
+<title>Home page</title>
+</head>
+<body>
+	<section class="banner d-flex justify-content-center align-items-center">
+		<div class="text-center">
+			<h2 class="font-weight-bold">The ConnectLoom</h2>	
+		<p>
+			Start collecting your contact very smart way.
+			We provide very efficient and smarter way of holdings contacts. 
+		</p>
+		<button class="btn bg-primary bt-lg text-white"><a class="text-white" th:href="@{/signin}">Get started</a></button>
+		</div>
+		
+	</section>
+</body>
+</html>

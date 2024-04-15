@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www/thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>verify OTP</title>
+</head>
+<body>
+	<section>
+		<div class="login-form-bg">
+			<div class="row">
+				<div class="col-md-6 mx-auto">
+					<div class="card" style="background: #c8c8c8; border:0px">
+						<div class="login-box">
+							<div th:if="${session.message}"
+								class="alert alert-dismissible fade show mt-3"
+								th:classappend="${session.message.type}" role="alert">
+								<span th:text="${session.message.content}"></span>
+								<button type="button" class="close" data-dismiss="alert"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block>
+							</div>
+							<div class="login-snip">
+								
+								<input id="tab-1" type="radio" name="tab" class="sign-in" checked>
+										<label for="tab-1" class="tab">Verify OTP</label> 
+								<input id="tab-2" type="radio" name="tab" class="sign-up">
+									<label for="tab-2" class="tab"></label>
+								
+									
+								<div class="login-space">
+	
+								<form th:action=@{/verify-otp} method="post">
+								<div class="form-group mt-5">
+									<input required name="otp" type="password"
+										placeholder="Enter Your OTP Here..." class="form-control" />
+								</div>
+								<div class="container text-center mt-4">
+									<button class="btn btn-lg btn-success">Submit</button>
+								</div>
+							</form>
+								
+									
+									
+								</div>
+							
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

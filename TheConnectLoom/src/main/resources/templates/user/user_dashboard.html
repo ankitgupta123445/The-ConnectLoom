@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="user/user_base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dashboard-user</title>
+</head>
+<body>
+<section>
+	<div th:if="${session.message}"
+								class="alert alert-dismissible fade show"
+								th:classappend="${session.message.type}" role="alert">
+								<span th:text="${session.message.content}"></span>
+								<button type="button" class="close" data-dismiss="alert"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block>
+							</div>
+   <div class="container">
+       <div class="card">
+           <div class="card-body">
+               <div class="container text-center">
+                   <img src="" style="height: 200px;width: 200px;"
+                        class="my-profile-picture"
+                        th:src="@{/image/contact_logo.png}"
+                        alt="smart_contact_manager.png"
+                   >
+               </div>
+               <h1 class="text-center mt-3 text-secondary fst-italic">
+                   Start adding your contact on cloud....
+               </h1>
+               <a th:href="@{/user/add-contact}" class="btn btn-primary mt-4 btn-block text-uppercase d-grid">Add new Contact</a>
+           </div>
+       </div>
+
+   </div>
+    <script>
+        $(document).ready(()=>{
+            $(".tag").removeClass("active");
+            $("#home-link").addClass("active");
+        })
+    </script>
+</section>
+</body>
+</html>

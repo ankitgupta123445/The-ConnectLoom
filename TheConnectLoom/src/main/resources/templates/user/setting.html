@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="user/user_base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Setting</title>
+    
+</head>
+
+<body>
+<section>
+			
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body ">
+				<div th:if="${session.message}"
+								class="alert alert-dismissible fade show"
+								th:classappend="${session.message.type}" role="alert">
+								<span th:text="${session.message.content}"></span>
+								<button type="button" class="close" data-dismiss="alert"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block>
+							</div>
+					<h3 class="m-3 text-center">Change Password</h3>
+					<form th:action="@{/user/change-password}" method ="post">
+						<div class="form-group">
+							<label>Old Password</label>
+							<input required="required" name="oldPassword" type="password" class="form-control" placeholder="Enter old Password">
+						</div>
+						<div class="form-group">
+							<label>New Password</label>
+							<input required="required" name="newPassword" type="password" class="form-control" placeholder="Enter new Password">
+						</div>
+						<div class="container text-center">
+							<button type="submit" class="btn btn-success" > Change</button>
+							<button type="reset" class="btn btn-warning" > Reset</button>
+						</div>
+						
+					</form>
+			
+				</div>
+			</div>
+		    
+		    
+            
+		</div>  
+	</div>
+</div>
+   
+    <script>
+        $(document).ready(()=>{
+            $(".tag").removeClass("active");
+            $("#setting-link").addClass("active");
+        });
+        
+        
+    </script>
+</section>
+</body>
+</html>
